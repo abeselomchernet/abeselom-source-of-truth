@@ -1,7 +1,7 @@
 # Privacy-friendly analytics
 
-The public MVP deliberately ships without cookies, visitor profiling, or embedded advertising trackers.
+The public MVP uses Cloudflare Web Analytics for aggregate page-view and performance measurement. It deliberately avoids cookies, visitor profiling, session replay, and embedded advertising trackers.
 
-When a custom domain is selected, enable one privacy-preserving provider at the host level, preferably Cloudflare Web Analytics or an equivalent cookieless service. Configure the provider only for the final public hostname, document its retention and data-processing settings, and verify that no personal data is sent in query strings or event payloads.
+The current Cloudflare Web Analytics property tracks the GitHub Pages hostname `abeselomchernet.github.io`. If a custom domain is added later, register that hostname separately and review its retention and data-processing settings.
 
 Do not add Google Analytics, session replay, fingerprinting, ad pixels, or recruiter-identifying telemetry to this public portfolio.
