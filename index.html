@@ -8,7 +8,7 @@
   <meta property="og:description" content="A verified, explainable view of research, technology, leadership, and public-service work.">
   <meta property="og:type" content="website">
   <title>Abeselom Girum Chernet | Source of Truth</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20260903">
   <style>
     .profile-portrait { width: calc(100% + 60px); height: 280px; object-fit: contain; object-position: center; background: #dbe8f3; margin: -30px -30px 24px; display: block; }
   </style>
@@ -24,6 +24,7 @@
         <a href="#graph">Connections</a>
         <a href="#matcher">Matcher</a>
         <a href="#forecast">Scenarios</a>
+        <a href="#certifications">Certifications</a>
         <a href="#audiences">For you</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -61,7 +62,7 @@
     </section>
 
     <section class="section section-dark" id="graph"><div class="shell"><div class="section-heading"><div><p class="eyebrow">The connection map</p><h2>See the system behind the profile.</h2></div><p>Search the evidence graph by theme, inspect the relationship, and see what is verified versus still developing.</p></div>
-      <div class="graph-tools"><label class="search-label" for="graph-search">Search the graph<input id="graph-search" type="search" placeholder="Try “resilience” or “GitHub”"></label><label class="filter-label" for="graph-filter">Filter by status<select id="graph-filter"><option value="all">All evidence</option><option value="verified">Verified public</option><option value="document">Document-backed</option><option value="project">Public project</option><option value="synthesis">Interpretation</option><option value="proposed">Proposed</option></select></label></div>
+      <div class="graph-tools"><label class="search-label" for="graph-search">Search the graph<input id="graph-search" type="search" placeholder="Try “resilience” or “GitHub”"></label><label class="filter-label" for="graph-filter">Filter by status<select id="graph-filter"><option value="all">All evidence</option><option value="verified">Verified public</option><option value="document">Document-backed</option><option value="project">Public project</option><option value="synthesis">Interpretation</option><option value="proposed">Proposed</option><option value="review">Needs review</option></select></label></div>
       <div class="graph-layout"><div class="connection-map" id="connection-map" aria-label="Interactive connections among Abeselom's practice areas">
         <div class="map-center"><span>AB</span><strong>Abeselom</strong><small>systems architect</small></div>
         <button class="map-node node-one" data-path="research">Research<span>CAD · SRF · FIOS</span></button>
@@ -80,7 +81,7 @@
     <section class="section forecast-section" id="forecast"><div class="shell"><div class="section-heading"><div><p class="eyebrow">Scenario intelligence</p><h2>Plan forward without pretending to know the future.</h2></div><p>These are transparent planning scenarios, not verified outcomes or promises. Select a path to inspect its assumptions.</p></div>
       <div class="scenario-tabs" role="tablist" aria-label="Forecast scenarios"><button class="scenario-tab is-active" role="tab" aria-selected="true" aria-controls="scenario-panel" data-scenario="baseline">Baseline</button><button class="scenario-tab" role="tab" aria-selected="false" aria-controls="scenario-panel" data-scenario="reform">Reform</button><button class="scenario-tab" role="tab" aria-selected="false" aria-controls="scenario-panel" data-scenario="stress">Stress</button></div>
       <div class="scenario-panel" id="scenario-panel" role="tabpanel" aria-live="polite"><div><span class="evidence-badge badge-synthesis">Planning scenario</span><h3>Baseline · disciplined continuation</h3><p>Current evidence, projects, and capability development continue without assuming new funding, validation, or institutional adoption.</p></div><div class="scenario-facts"><div><small>Horizon</small><strong>12–24 months</strong></div><div><small>Confidence</small><strong>Directional</strong></div><div><small>Measure next</small><strong>Evidence and milestones</strong></div></div></div>
-      <div class="forecast-table-wrap"><h3>Forecast register</h3><table class="forecast-table"><thead><tr><th>Planning signal</th><th>Current evidence</th><th>Next measurable checkpoint</th><th>Status</th></tr></thead><tbody><tr><td>FIOS validation readiness</td><td>Governance and data checks documented</td><td>Curated outcome rerun and external review</td><td><span class="table-status proposed">Forecast input</span></td></tr><tr><td>FSRR evidence coverage</td><td>46 records; 68 criteria held</td><td>Criterion-level source extraction</td><td><span class="table-status developing">Open</span></td></tr><tr><td>Enawuga adoption and liquidity</td><td>Live demonstration available</td><td>Instrumented pilot usage and liquidity observations</td><td><span class="table-status developing">Needs data</span></td></tr></tbody></table></div>
+      <div class="forecast-table-wrap"><h3>Forecast register</h3><table class="forecast-table"><thead><tr><th>Planning signal</th><th>Current evidence</th><th>Next measurable checkpoint</th><th>Status</th></tr></thead><tbody id="forecast-rows"></tbody></table></div>
       <div class="forecast-rule"><strong>Forecasting rule</strong><span>Every future claim must retain its assumptions, data vintage, uncertainty range, and previous prediction. Misses are recorded—not rewritten.</span></div>
     </div></section>
 
@@ -93,8 +94,10 @@
     </section>
 
     <section class="section alt-bg" id="evidence"><div class="shell"><div class="section-heading"><div><p class="eyebrow">Evidence ledger</p><h2>Make your own assessment.</h2></div><p>Public evidence is classified before it is presented. No claim is stronger than its source.</p></div>
-      <div class="evidence-grid"><article class="evidence-card"><span class="evidence-badge badge-public">Verified public</span><h3>SRF Volume II</h3><p>Indexed through SSRN, Google Scholar, and ResearchGate.</p><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6822401" target="_blank" rel="noreferrer">Open source ↗</a></article><article class="evidence-card"><span class="evidence-badge badge-doc">Document-backed</span><h3>Bankers’ training leadership</h3><p>Appointment and agreement records support the coordinator role.</p><a href="#limitations">View evidence boundary →</a></article><article class="evidence-card"><span class="evidence-badge badge-doc">Document-backed</span><h3>FinWise Cohort 2</h3><p>EDI/UNCDF email records support Enawuga selection, bootcamp participation, and pitch-deck submission.</p><a href="#limitations">View evidence boundary →</a></article><article class="evidence-card"><span class="evidence-badge badge-project">Public project</span><h3>FIOS / CAD Phase 2</h3><p>Programme documentation supports architecture and validation claims.</p><a href="#limitations">View limits →</a></article><article class="evidence-card"><span class="evidence-badge badge-synthesis">Interpretation</span><h3>Translation-layer positioning</h3><p>A synthesis connecting banking, research, technology, and inclusion work.</p><a href="#top">Read positioning →</a></article></div>
+      <div class="evidence-grid" id="featured-evidence"></div>
     </div></section>
+
+    <section class="section shell" id="certifications"><div class="section-heading"><div><p class="eyebrow">Credentials</p><h2>Professional learning with verification paths.</h2></div><p>Each entry reflects the LinkedIn certification record. Where LinkedIn provides no separate credential ID, the verification link is shown without inventing one.</p></div><div class="evidence-grid" id="certification-list"></div></section>
 
     <section class="section shell two-col" id="research"><div><p class="eyebrow">Research profile</p><h2>Applied research with visible uncertainty.</h2><p>Current research connects measurement to diagnosis, then diagnosis to practical institutional action.</p><div class="research-list"><div><strong>SRF</strong><span>Financial-sector resilience, resolution, and execution under stress.</span></div><div><strong>CAD</strong><span>Grassroots viability and institutional translation capacity.</span></div><div><strong>Enawuga</strong><span>Shared infrastructure and rural financial access economics.</span></div></div></div><div class="quote-card"><span class="quote-mark">“</span><blockquote>Reasoning must not override measurement; incorrect predictions should be logged, not smoothed away.</blockquote><p>Method principle · CAD / SRF / FIOS programme</p></div></section>
 

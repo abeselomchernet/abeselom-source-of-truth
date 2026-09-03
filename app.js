@@ -5,31 +5,8 @@ const pathCopy = {
   leadership: 'Leadership connects nearly two decades of banking and enterprise experience with training, entrepreneurship, partnerships, and programme design.'
 };
 
-const graphNodes = [
-  {id:'RES-001',title:'SRF Volume II',status:'verified',label:'Verified public',description:'Independent research on Ethiopian financial-system resilience, resolution, and execution.',source:'SSRN · Google Scholar · ResearchGate',url:'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6822401',tags:'research resilience Ethiopia'},
-  {id:'PRJ-002',title:'FIOS / CAD Phase 2',status:'project',label:'Public project',description:'Evidence-governed institutional intelligence platform connecting measurement, diagnosis, graphs, agents, and delivery.',source:'CAD Phase 2 documentation',url:'#limitations',tags:'FIOS CAD research platform'},
-  {id:'PRJ-005',title:'FSRR Ethiopia Pilot',status:'verified',label:'Verified public',description:'Evidence-first financial-system resilience workspace; current state is read-only intake, not a completed rating.',source:'Live public project',url:'https://glum-surprised-charactercode--berhaneunity.replit.app/',tags:'FSRR resilience Ethiopia evidence'},
-  {id:'PRJ-001',title:'Enawuga Phygital Nexus',status:'verified',label:'Verified public',description:'Rural finance and DPI demonstration connecting agents, payments, identity, and productive activity.',source:'Live public project',url:'https://phygital-rural-agent-hub.vercel.app/',tags:'Enawuga DPI rural finance payments'},
-  {id:'FIN-001',title:'FinWise Acceleration Program · Cohort 2',status:'document',label:'Document-backed',description:'EDI/UNCDF correspondence records official Enawuga selection from 322 applicants, participation, the 12-Day bootcamp culmination, and final pitch-deck submission.',source:'User-supplied EDI/UNCDF email records',url:'#limitations',tags:'FinWise EDI UNCDF financial inclusion development finance Enawuga pitch acceleration'},
-  {id:'ENT-001',title:'Wishland enterprise foundation',status:'document',label:'Document-backed',description:'Private business records support Wishland Networking PLC registration, general-manager identification, and a telecommunications value-added-services classification.',source:'Private registration records; identifiers withheld',url:'#limitations',tags:'Wishland entrepreneurship telecommunications business registration leadership'},
-  {id:'TRN-001',title:'Bankers’ Training Coordinator',status:'document',label:'Document-backed',description:'Formal appointment and programme agreement support coordination and curriculum leadership.',source:'Sub-Saharan University College records',url:'#limitations',tags:'training leadership banking'},
-  {id:'EDU-004',title:'Certified Digital Finance Practitioner',status:'verified',label:'Verified public',description:'Professional digital-finance credential recorded through the Digital Frontiers Institute.',source:'LinkedIn / DFI profile',url:'https://www.linkedin.com/in/abeselomchernet/',tags:'credential digital finance'},
-  {id:'RES-004',title:'Country Architect Diagnostic',status:'project',label:'Public project',description:'Framework for understanding grassroots viability, institutional translation capacity, and market formation readiness.',source:'LinkedIn and CAD materials',url:'#work',tags:'CAD translation institutions markets'},
-  {id:'FC-001',title:'Scenario forecasting layer',status:'proposed',label:'Proposed',description:'Future baseline, reform, and stress forecasts with backtesting and visible uncertainty.',source:'Roadmap proposal',url:'#limitations',tags:'forecasting scenarios future'}
-];
-
-const requirementRules = [
-  {name:'Development finance and capital structuring',terms:['development finance','blended finance','capital raising','structured finance','project finance','investment advisory','deal origination','transaction advisory','capital markets'],evidence:['RES-001','CAR-007','FIN-001'],question:'Which financing constraint, risk allocation, and partner capability determine whether the opportunity becomes bankable?'},
-  {name:'Digital product and MSME market development',terms:['digital product','product development','product lifecycle','market research','competitive analysis','customer needs','retail','msme','vendor proposal'],evidence:['PRJ-001','CAR-007','TRN-001'],question:'Which customer segment, product lifecycle stage, and market signal should guide the first product decision?'},
-  {name:'Digital finance',terms:['digital finance','fintech','mobile money','financial technology','payment'],evidence:['EDU-004','PRJ-001'],question:'Which financial product, payment, or adoption constraint matters most in this role?'},
-  {name:'Financial inclusion',terms:['financial inclusion','rural finance','last mile','access','underserved'],evidence:['PRJ-001','RES-005','FIN-001'],question:'How will success be measured for the people or firms currently excluded?'},
-  {name:'DPI and interoperability',terms:['dpi','digital public infrastructure','interoperability','payment rail','api','switch'],evidence:['PRJ-001','PRJ-002'],question:'Which systems, standards, or institutional boundaries must interoperate?'},
-  {name:'Institutional resilience',terms:['resilience','financial system','crisis','resolution','supervision','risk'],evidence:['RES-001','PRJ-005'],question:'What evidence would distinguish a resilient system from a merely compliant one?'},
-  {name:'Applied research',terms:['research','methodology','validation','policy','diagnostic','evidence'],evidence:['RES-001','RES-004','PRJ-002'],question:'What decision should the research make easier or more defensible?'},
-  {name:'Technology and AI',terms:['technology','ai','agent','knowledge graph','machine learning','automation','software'],evidence:['PRJ-002','PRJ-007'],question:'Where should automation assist judgment, and where must human review remain mandatory?'},
-  {name:'Leadership and partnerships',terms:['leadership','programme','program','partnership','stakeholder','strategy','manager'],evidence:['CAR-003','TRN-001'],question:'Which stakeholders need alignment, and what practical outcome would demonstrate it?'}
-];
-
+let graphNodes = [];
+let requirementRules = [];
 const scenarios = {
   baseline: {title:'Baseline · disciplined continuation',description:'Current evidence, projects, and capability development continue without assuming new funding, validation, or institutional adoption.',confidence:'Directional',measure:'Evidence and milestones'},
   reform: {title:'Reform · validated expansion',description:'Validation improves, trusted partnerships form, and the strongest platform components move from demonstration toward carefully governed adoption.',confidence:'Conditional',measure:'External review and signed pilots'},
@@ -53,7 +30,7 @@ const renderMatcher = () => {
   const matchedHtml = matched.length ? matched.map((rule) => `<div class="match-item"><strong>${rule.name}</strong><p>Matched because the requirement mentions: ${rule.terms.filter((term) => text.includes(term)).slice(0,2).join(', ')}.</p></div>`).join('') : '<p class="match-gap">No controlled capability terms detected yet. Try “digital finance”, “resilience”, “DPI”, or “research”.</p>';
   const evidenceHtml = evidence.length ? evidence.map((node) => `<div class="match-item"><strong>${node.title}</strong><p>${node.description}</p><a href="${node.url}" ${node.url.startsWith('http') ? 'target="_blank" rel="noreferrer"' : ''}>${node.label} · inspect evidence →</a></div>`).join('') : '<p class="match-gap">No evidence was matched. This is a signal to review the requirement or add verified evidence—not a negative suitability judgment.</p>';
   const gapsHtml = missing.length ? missing.map((rule) => `<div class="match-gap"><strong>${rule.name}</strong><br>No direct tagged evidence was found in the current public register.</div>`).join('') : '<p class="match-item"><strong>No uncovered capability category detected.</strong><br><span>The matcher still cannot assess unlisted requirements.</span></p>';
-  const questionsHtml = matched.slice(0, 3).map((rule) => `<div class="match-item"><strong>${rule.question}</strong></div>`).join('');
+  const questionsHtml = matched.slice(0, 3).map((rule) => `<div class="match-item"><strong>${rule.question || `What measurable outcome would demonstrate strength in ${rule.name.toLowerCase()}?`}</strong></div>`).join('');
   output.innerHTML = `<div class="match-summary"><div><small>MATCH REPORT</small><h3>${escapeHtml(roleTitle)}</h3></div><div><strong>${matched.length}</strong><small>capabilities matched</small></div></div><div class="match-section"><h4>Capability matches</h4>${matchedHtml}</div><div class="match-section"><h4>Supporting evidence</h4>${evidenceHtml}</div><div class="match-section"><h4>Open requirements</h4>${gapsHtml}</div><div class="match-section"><h4>Fair interview prompts</h4>${questionsHtml || '<p class="match-item">Add a clearer role description to generate prompts.</p>'}</div>`;
 };
 
@@ -68,6 +45,28 @@ const renderGraph = () => {
   const container = document.querySelector('#graph-results');
   container.innerHTML = results.length ? results.map((node) => `<article class="graph-result"><small>${node.id} · ${node.label}</small><h3>${node.title}</h3><p>${node.description}</p><small>${node.source}</small><br><a href="${node.url}" ${node.url.startsWith('http') ? 'target="_blank" rel="noreferrer"' : ''}>Inspect evidence →</a></article>`).join('') : '<p class="graph-empty">No matching evidence. Try another term or choose “All evidence.”</p>';
 };
+
+const renderProjectionSections = (projection) => {
+  const byId = new Map(graphNodes.map((node) => [node.id, node]));
+  const badgeClass = {verified:'badge-public', document:'badge-doc', project:'badge-project', synthesis:'badge-synthesis', proposed:'badge-synthesis'};
+  document.querySelector('#featured-evidence').innerHTML = projection.featuredEvidence.map((id) => byId.get(id)).filter(Boolean).map((node) => `<article class="evidence-card"><span class="evidence-badge ${badgeClass[node.status] || 'badge-synthesis'}">${escapeHtml(node.label)}</span><h3>${escapeHtml(node.title)}</h3><p>${escapeHtml(node.description)}</p><a href="${node.url}" ${node.url.startsWith('http') ? 'target="_blank" rel="noreferrer"' : ''}>${node.url.startsWith('http') ? 'Open source ↗' : 'View evidence boundary →'}</a></article>`).join('');
+  document.querySelector('#forecast-rows').innerHTML = projection.forecasts.map((forecast) => `<tr><td>${escapeHtml(forecast.signal)}</td><td>${escapeHtml(forecast.evidence)}</td><td>${escapeHtml(forecast.checkpoint)}</td><td><span class="table-status ${escapeHtml(forecast.statusClass)}">${escapeHtml(forecast.status)}</span></td></tr>`).join('');
+  document.querySelector('#certification-list').innerHTML = projection.certifications.map((certification) => `<article class="evidence-card"><span class="evidence-badge badge-public">Credential · ${escapeHtml(certification.issued)}</span><h3>${escapeHtml(certification.name)}</h3><p>${escapeHtml(certification.issuer)}${certification.credentialId ? ` · Credential ID: ${escapeHtml(certification.credentialId)}` : ' · No separate credential ID listed'}</p><a href="${certification.verificationUrl}" target="_blank" rel="noreferrer">Verify credential ↗</a></article>`).join('');
+};
+
+const initializeApp = async () => {
+  try {
+    const response = await fetch('data/public-projection.json', {cache: 'no-store'});
+    if (!response.ok) throw new Error(`Projection request failed: ${response.status}`);
+    const projection = await response.json();
+    graphNodes = projection.evidence;
+    requirementRules = projection.requirements;
+    renderProjectionSections(projection);
+  } catch (error) {
+    document.querySelector('#graph-results').innerHTML = '<p class="graph-empty">The public evidence projection is temporarily unavailable. Please try again later.</p>';
+    document.querySelector('#matcher-output').innerHTML = '<div class="matcher-empty"><span class="panel-number">MATCH REPORT</span><h3>Evidence map unavailable.</h3><p>No matching is performed until the approved public projection can be loaded.</p></div>';
+    return;
+  }
 
 document.querySelectorAll('.tab').forEach((tab) => {
   tab.addEventListener('click', () => {
@@ -116,3 +115,6 @@ document.querySelectorAll('.scenario-tab').forEach((tab) => {
     document.querySelector('#scenario-panel').innerHTML = `<div><span class="evidence-badge badge-synthesis">Planning scenario</span><h3>${scenario.title}</h3><p>${scenario.description}</p></div><div class="scenario-facts"><div><small>Horizon</small><strong>12–24 months</strong></div><div><small>Confidence</small><strong>${scenario.confidence}</strong></div><div><small>Measure next</small><strong>${scenario.measure}</strong></div></div>`;
   });
 });
+};
+
+initializeApp();
