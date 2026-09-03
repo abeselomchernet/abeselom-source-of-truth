@@ -2,7 +2,7 @@ const pathCopy = {
   research: 'Research connects CAD measurement, SRF diagnosis, FIOS evidence governance, and independent financial-sector publications.',
   technology: 'Technology connects rural-agent infrastructure, interoperable payment rails, APIs, knowledge graphs, AI agents, and explainable decision support.',
   impact: 'Impact connects financial inclusion, rural access, institutional resilience, productive capital, public service, and practical delivery.',
-  leadership: 'Leadership connects nearly two decades of banking and enterprise experience with training, entrepreneurship, partnerships, and programme design.'
+  leadership: 'Leadership connects nearly two decades of banking and enterprise experience with training delivery, the 29 December 2010 coordinator appointment, entrepreneurship, partnerships, and programme design.'
 };
 
 let graphNodes = [];
