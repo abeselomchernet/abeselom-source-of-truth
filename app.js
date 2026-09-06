@@ -48,7 +48,7 @@ const renderGraph = () => {
 
 const renderProjectionSections = (projection) => {
   const byId = new Map(graphNodes.map((node) => [node.id, node]));
-  const badgeClass = {verified:'badge-public', document:'badge-doc', project:'badge-project', synthesis:'badge-synthesis', proposed:'badge-synthesis'};
+  const badgeClass = {verified:'badge-public', document:'badge-doc', project:'badge-project', synthesis:'badge-synthesis', proposed:'badge-synthesis', review:'badge-review'};
   const renderCards = (items) => items.map((node) => `<article class="evidence-card"><span class="evidence-badge ${badgeClass[node.status] || 'badge-synthesis'}">${escapeHtml(node.label)}</span><h3>${escapeHtml(node.title)}</h3><p>${escapeHtml(node.description)}</p><small>${escapeHtml(node.source)}</small><a href="${node.url}" ${node.url.startsWith('http') ? 'target="_blank" rel="noreferrer"' : ''}>${node.url.startsWith('http') ? 'Inspect source ↗' : 'View evidence boundary →'}</a>${node.sourceLinks?.length ? `<div class="source-links">${node.sourceLinks.map((url) => `<a href="${url}" target="_blank" rel="noreferrer">Linked source ↗</a>`).join('')}</div>` : ''}</article>`).join('');
   document.querySelector('#featured-evidence').innerHTML = projection.featuredEvidence.map((id) => byId.get(id)).filter(Boolean).map((node) => `<article class="evidence-card"><span class="evidence-badge ${badgeClass[node.status] || 'badge-synthesis'}">${escapeHtml(node.label)}</span><h3>${escapeHtml(node.title)}</h3><p>${escapeHtml(node.description)}</p><a href="${node.url}" ${node.url.startsWith('http') ? 'target="_blank" rel="noreferrer"' : ''}>${node.url.startsWith('http') ? 'Open source ↗' : 'View evidence boundary →'}</a></article>`).join('');
   document.querySelector('#career-list').innerHTML = renderCards(projection.evidence.filter((node) => node.id.startsWith('CAR-')));
@@ -69,7 +69,6 @@ const initializeApp = async () => {
   } catch (error) {
     document.querySelector('#graph-results').innerHTML = '<p class="graph-empty">The public evidence projection is temporarily unavailable. Please try again later.</p>';
     document.querySelector('#matcher-output').innerHTML = '<div class="matcher-empty"><span class="panel-number">MATCH REPORT</span><h3>Evidence map unavailable.</h3><p>No matching is performed until the approved public projection can be loaded.</p></div>';
-    return;
   }
 
 document.querySelectorAll('.tab').forEach((tab) => {

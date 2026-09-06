@@ -1,5 +1,13 @@
 # Release changelog
 
+## 2026-09-06 - Increment A production release
+
+- Added the approved career, education, research, certification, graph, matcher, scenario, and audience-view projection updates.
+- Allowed same-origin projection loading under the static host security policy.
+- Kept interactive controls usable when projection loading is temporarily unavailable.
+- Completed HTTPS preview QA with no browser console errors and passed JavaScript/JSON integrity checks.
+- Added the repository README and aligned deployment guidance with the approved public contact policy.
+
 ## 2026-09-03 - Production baseline
 
 - Published the evidence-backed public projection with 64 evidence records and 9 explainable matcher rules.

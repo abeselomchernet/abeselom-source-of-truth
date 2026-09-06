@@ -8,7 +8,7 @@ Publish the contents of this folder as the web root. It is dependency-free and c
 
 - Replace no evidence with assumptions; keep the evidence labels and limitations intact.
 - Review the public links and confirm each destination is intended to be public.
-- Add a professional public contact route when one is chosen; the MVP currently uses LinkedIn rather than an invented email address.
+- Review the professional public contact routes before publishing and keep only addresses and channels intentionally approved for public display.
 - Confirm that no private certificates, identity documents, API keys, passwords, or confidential project data are inside the publish folder.
 - Set the final canonical domain in the host configuration and add a matching `sitemap.xml` only after the domain is known.
 
