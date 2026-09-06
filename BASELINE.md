@@ -1,9 +1,10 @@
 # Public MVP Baseline
 
 - Public URL: `https://abeselomchernet.github.io/abeselom-source-of-truth/`
-- Baseline commit: `b79203e94e06766af83f9e8d6a47483f6ab84844`
-- Baseline date: 2026-09-02
+- Baseline commit: recorded by the `production-2026-09-06` tag
+- Baseline date: 2026-09-06
 - Baseline tag: `mvp-baseline-2026-09-03`
+- Current production tag: `production-2026-09-06`
 - Deployment mode: static GitHub Pages
 - Scope: public-safe portfolio only; no private documents, authentication, or backend
 

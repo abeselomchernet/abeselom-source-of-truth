@@ -21,4 +21,4 @@
 
 - Every public change must pass projection validation, syntax validation, link checks, privacy review, and desktop/mobile walkthroughs.
 - The previous stable release is preserved by the `mvp-baseline-2026-09-03` tag.
-- The current production baseline is recorded by the `production-2026-09-03` tag.
+- The previous stable release is recorded by the `production-2026-09-03` tag; this release is recorded by `production-2026-09-06`.
