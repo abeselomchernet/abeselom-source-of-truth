@@ -1,35 +1,42 @@
 const pathCopy = {
-  research: 'Research connects CAD measurement, SRF diagnosis, FIOS evidence governance, and independent financial-sector publications.',
-  technology: 'Technology connects rural-agent infrastructure, interoperable payment rails, APIs, knowledge graphs, AI agents, and explainable decision support.',
-  impact: 'Impact connects financial inclusion, rural access, institutional resilience, productive capital, public service, and practical delivery.',
-  leadership: 'Leadership connects nearly two decades of banking and enterprise experience with training delivery, the 29 December 2010 coordinator appointment, entrepreneurship, partnerships, and programme design.'
+  research: 'Research connects macroeconomic intelligence, financial-system analysis, market design, and evidence-led decision support.',
+  product: 'Product work connects diagnosis, customer and institutional needs, phased roadmaps, acceptance criteria, controlled pilots, and measurable evidence.',
+  platform: 'Platform work connects financial infrastructure, APIs, interoperable payment concepts, provenance, auditability, AI/data workflows, and safety boundaries.',
+  leadership: 'Leadership connects banking, audit, branch management, Wishland commercial work, partnership development, and programme coordination.'
 };
 
 let graphNodes = [];
 let requirementRules = [];
+let evidenceState = 'loading';
 const scenarios = {
   baseline: {title:'Baseline · disciplined continuation',description:'Current evidence, projects, and capability development continue without assuming new funding, validation, or institutional adoption.',confidence:'Directional',measure:'Evidence and milestones'},
   reform: {title:'Reform · validated expansion',description:'Validation improves, trusted partnerships form, and the strongest platform components move from demonstration toward carefully governed adoption.',confidence:'Conditional',measure:'External review and signed pilots'},
   stress: {title:'Stress · constrained progress',description:'Validation, funding, data access, or adoption is delayed. Work prioritizes evidence quality, privacy, resilience, and reversible next steps.',confidence:'Risk lens',measure:'Blockers and mitigation actions'}
 };
 
-const escapeHtml = (value) => value.replace(/[&<>'"]/g, (character) => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[character]));
+const escapeHtml = (value) => String(value ?? '').replace(/[&<>'"]/g, (character) => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[character]));
 
 const renderMatcher = () => {
   const input = document.querySelector('#role-input');
   const output = document.querySelector('#matcher-output');
+  if (evidenceState !== 'ready') {
+    output.innerHTML = evidenceState === 'loading'
+      ? '<div class="matcher-empty"><h3>Loading your evidence connections…</h3><p>Your description is preserved. Matching will run when the evidence is ready.</p></div>'
+      : '<div class="matcher-empty"><h3>Evidence could not load.</h3><p>This is a loading issue, not a judgment of capability. Refresh this page to retry; your career and project references are available below.</p></div>';
+    return;
+  }
   const text = input.value.toLowerCase();
   if (!text.trim()) {
     output.innerHTML = '<div class="matcher-empty"><span class="panel-number">MATCH REPORT</span><h3>Your evidence map will appear here.</h3><p>Matches are generated from explicit capability tags and linked evidence. Requirements without evidence remain visible as gaps.</p></div>';
     return;
   }
-  const matched = requirementRules.filter((rule) => rule.terms.some((term) => text.includes(term)));
+  const matched = PortfolioMatcher.match(text, requirementRules, graphNodes);
   const evidence = matched.flatMap((rule) => rule.evidence).filter((id, index, ids) => ids.indexOf(id) === index).map((id) => graphNodes.find((node) => node.id === id)).filter(Boolean);
-  const missing = requirementRules.filter((rule) => !matched.includes(rule)).filter((rule) => rule.terms.some((term) => text.includes(term)) === false).slice(0, 3);
-  const roleTitle = text.split(/[.!?\n]/)[0].trim().slice(0, 58) || 'Role scenario';
-  const matchedHtml = matched.length ? matched.map((rule) => `<div class="match-item"><strong>${rule.name}</strong><p>Matched because the requirement mentions: ${rule.terms.filter((term) => text.includes(term)).slice(0,2).join(', ')}.</p></div>`).join('') : '<p class="match-gap">No controlled capability terms detected yet. Try “digital finance”, “resilience”, “DPI”, or “research”.</p>';
+  const missing = matched.filter((rule) => !rule.evidence.some((id) => graphNodes.some((node) => node.id === id)));
+  const roleTitle = input.value.trim().split(/[.!?\n]/)[0] || 'Role scenario';
+  const matchedHtml = matched.length ? matched.map((rule) => `<div class="match-item"><strong>${escapeHtml(rule.name)}</strong><p>${escapeHtml(rule.summary || 'Relevant career, learning, or project evidence is available for discussion.')}</p><p>Connected through: ${rule.matchedTerms.map(escapeHtml).slice(0,4).join(', ')}.</p>${rule.boundary ? `<p><strong>Evidence scope:</strong> ${escapeHtml(rule.boundary)}</p>` : ''}</div>`).join('') : '<p class="match-gap">This description has no mapped connection yet. That reflects the vocabulary covered by this tool. Explore the capability atlas or discuss the requirement directly.</p>';
   const evidenceHtml = evidence.length ? evidence.map((node) => `<div class="match-item"><strong>${node.title}</strong><p>${node.description}</p><a href="${node.url}" ${node.url.startsWith('http') ? 'target="_blank" rel="noreferrer"' : ''}>${node.label} · inspect evidence →</a></div>`).join('') : '<p class="match-gap">No evidence was matched. This is a signal to review the requirement or add verified evidence—not a negative suitability judgment.</p>';
-  const gapsHtml = missing.length ? missing.map((rule) => `<div class="match-gap"><strong>${rule.name}</strong><br>No direct tagged evidence was found in the current public register.</div>`).join('') : '<p class="match-item"><strong>No uncovered capability category detected.</strong><br><span>The matcher still cannot assess unlisted requirements.</span></p>';
+  const gapsHtml = missing.length ? missing.map((rule) => `<div class="match-gap"><strong>${rule.name}</strong><br>No direct tagged evidence was found in the current public register.</div>`).join('') : '<p class="match-item"><strong>Review beyond these matches.</strong><br><span>This keyword map cannot assess unlisted requirements, depth of practice, production scale, or commercial outcomes. Discuss those directly and request supporting evidence.</span></p>';
   const questionsHtml = matched.slice(0, 3).map((rule) => `<div class="match-item"><strong>${rule.question || `What measurable outcome would demonstrate strength in ${rule.name.toLowerCase()}?`}</strong></div>`).join('');
   output.innerHTML = `<div class="match-summary"><div><small>MATCH REPORT</small><h3>${escapeHtml(roleTitle)}</h3></div><div><strong>${matched.length}</strong><small>capabilities matched</small></div></div><div class="match-section"><h4>Capability matches</h4>${matchedHtml}</div><div class="match-section"><h4>Supporting evidence</h4>${evidenceHtml}</div><div class="match-section"><h4>Open requirements</h4>${gapsHtml}</div><div class="match-section"><h4>Fair interview prompts</h4>${questionsHtml || '<p class="match-item">Add a clearer role description to generate prompts.</p>'}</div>`;
 };
@@ -60,14 +67,19 @@ const renderProjectionSections = (projection) => {
 
 const initializeApp = async () => {
   try {
-    const response = await fetch('data/public-projection.json', {cache: 'no-store'});
-    if (!response.ok) throw new Error(`Projection request failed: ${response.status}`);
-    const projection = await response.json();
+    const {projection} = await loadPortfolioData();
     graphNodes = projection.evidence;
     requirementRules = projection.requirements;
-    renderProjectionSections(projection);
+    evidenceState = graphNodes.length && requirementRules.length ? 'ready' : 'unavailable';
+    if (evidenceState !== 'ready') throw new Error('Incomplete public projection');
+    if (document.querySelector('#role-input').value.trim()) renderMatcher();
+    try {
+      renderProjectionSections(projection);
+    } catch (error) {
+      console.error('A portfolio section could not render:', error);
+    }
   } catch (error) {
-    document.querySelector('#graph-results').innerHTML = '<p class="graph-empty">The public evidence projection is temporarily unavailable. Please try again later.</p>';
+    if (evidenceState !== 'ready') evidenceState = 'unavailable';
     document.querySelector('#matcher-output').innerHTML = '<div class="matcher-empty"><span class="panel-number">MATCH REPORT</span><h3>Evidence map unavailable.</h3><p>No matching is performed until the approved public projection can be loaded.</p></div>';
   }
 
@@ -93,9 +105,6 @@ document.querySelectorAll('.map-node').forEach((node) => {
   });
 });
 
-document.querySelector('#graph-search').addEventListener('input', renderGraph);
-document.querySelector('#graph-filter').addEventListener('change', renderGraph);
-renderGraph();
 
 document.querySelector('#match-button').addEventListener('click', renderMatcher);
 document.querySelector('#role-input').addEventListener('keydown', (event) => {

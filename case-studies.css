@@ -1,0 +1,1 @@
+#case-studies .work-card p{margin:0 0 18px;font-size:14px}#case-studies .work-card strong{color:var(--ink)}#case-studies .work-card .card-link{padding-top:16px}#case-studies .work-grid{grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:1000px){#case-studies .work-grid{grid-template-columns:1fr}}

@@ -1,0 +1,16 @@
+{
+  "reviewedAt":"2026-10-08",
+  "capabilities":[
+    {"id":"strategy","title":"Product strategy & founder judgment","description":"Turn institutional and customer problems into hypotheses, roadmaps, and reviewable pilots.","evidence":["CAR-007","ENT-001","PRJ-011","FIN-001"],"terms":["Design Thinking","Project Management"]},
+    {"id":"finance","title":"Banking & financial operations","description":"Connect accounting, audit, branch leadership, and institutional finance with operating constraints.","evidence":["CAR-001","CAR-002","CAR-003","CAR-004","PRJ-010"],"terms":["Credit","Accounting"]},
+    {"id":"inclusion","title":"Inclusive finance & market design","description":"Design around rural access, agents, interoperability, productive activity, and responsible payments.","evidence":["PRJ-001","RES-005","EDU-004","FIN-001"],"terms":["Agent Networks","Inclusive","Responsible Digital"]},
+    {"id":"data","title":"Data, AI & analytical products","description":"Connect indicator discovery, provenance, deterministic analysis, and AI-assisted research.","evidence":["PRJ-009","PRJ-002","FIO-001"],"terms":["Artificial Intelligence","Learning AI","Data Analysis","Quantitative"]},
+    {"id":"architecture","title":"Platform design & governance","description":"Define adapters, tenant scope, role-safe projections, simulations, and reproducible evidence.","evidence":["PRJ-010","PRJ-011","PRJ-003","FIO-001"],"terms":["IT Strategy","Digital Transformation"]},
+    {"id":"research","title":"Research & institutional diagnosis","description":"Study resilience, institutional translation, and the relationship between market structures and execution.","evidence":["RES-001","RES-002","RES-003","RES-004","EDU-002"],"terms":["Statistics","Quantitative","Decision Making"]},
+    {"id":"leadership","title":"Commercial delivery & coordination","description":"Bring enterprise development, banking leadership, training, and partnership experience into delivery.","evidence":["CAR-005","CAR-008","CAR-009","TRN-001","SRV-001"],"terms":["Supervisor","Leading Diverse","Customer Engagement"]}
+  ],
+  "families":[
+    {"title":"Research & intelligence","description":"Country diagnosis and macroeconomic investigation share an evidence discipline. A live integration between these systems has not been established.","nodes":[{"evidence":"PRJ-002","role":"CAD / FIOS · governed evidence and institutional diagnosis"},{"evidence":"PRJ-009","role":"Macro Studio · research workspace and analytics"}]},
+    {"title":"Enawuga financial inclusion family","description":"Historical Enawuga Nexus contains the Model6 backend lineage. The cleaned Model6 backend and public investor replay relate to the Sovereign Core frontend vision; the Vercel pilot currently uses its own synthetic runtime.","nodes":[{"evidence":"PRJ-001","role":"Phygital Agent Hub · field-service and experience prototype"},{"evidence":"PRJ-010","role":"Model6 · institutional backend lineage and synthetic investor replay"},{"evidence":"PRJ-011","role":"Sovereign Core · controlled agent-to-audit pilot"}]}
+  ]
+}
