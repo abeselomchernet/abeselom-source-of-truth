@@ -6,9 +6,11 @@ The initial two V1 files have bundle ID `ABES-CANONICAL-IDENTITY-20261009-V1` an
 
 ## Decisions
 
+> **Supersession note — 10 October 2026 (Phase 1 reconciliation):** The Model6 classification in the bullet below is superseded. The Phase 1 reconciliation establishes Model 6 as an independent backend infrastructure family, separate from the Enawuga family. All other decisions in this section remain in effect. The original text is preserved as an unedited historical record.
+
 - Primary positioning: Product and Financial Infrastructure Leader bridging banking, market infrastructure, applied research, institutional strategy, and evidence-governed technology.
 - Research family includes SRF, E-PSM, institutional translation, CAD/FIOS, and Macro Studio. Relationships do not establish live integration.
-- Enawuga family includes historical Nexus, rural hubs, Enawuga OS, Model6, and Sovereign Core. Newly named hubs and OS retain needs-review status and do not contribute new verified capability claims.
+- ~~Enawuga family includes historical Nexus, rural hubs, Enawuga OS, Model6, and Sovereign Core.~~ **[SUPERSEDED 2026-10-10]** Enawuga family includes historical Nexus, rural hubs, Enawuga OS, and Sovereign Core. Model 6 is a separate independent backend infrastructure family. Newly named hubs and OS retain needs-review status and do not contribute new verified capability claims.
 - Model6's public replay and reported private/historical deployments have separate source descriptions. AWS is reported as rehearsed and stopped. IBM is historical. No current production operation is inferred.
 - Existing CAD certification claims are limited to the specified Pilot-10 artifacts.
 - CGAP/World Bank correspondence supports external expert review and methodological feedback. It does not support validation, approval, endorsement, partnership, or institutional adoption claims.

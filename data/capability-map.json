@@ -1,5 +1,5 @@
 {
-  "reviewedAt":"2026-10-09",
+  "reviewedAt":"2026-10-10",
   "capabilities":[
     {"id":"strategy","title":"Product strategy & founder judgment","description":"Turn institutional and customer problems into hypotheses, roadmaps, and reviewable pilots.","evidence":["CAR-007","ENT-001","PRJ-011","FIN-001"],"terms":["Design Thinking","Project Management"]},
     {"id":"finance","title":"Banking & financial operations","description":"Connect accounting, audit, branch leadership, and institutional finance with operating constraints.","evidence":["CAR-001","CAR-002","CAR-003","CAR-004","PRJ-010"],"terms":["Credit","Accounting"]},
@@ -11,7 +11,32 @@
     {"id":"engagement","title":"Institutional engagement & market development","description":"Translate research and architecture into constructive dialogue with development-finance, accelerator, and regulatory stakeholders.","evidence":["ENG-001","ENG-002","FIN-001","CAR-008","CAR-009"],"terms":["Stakeholder Engagement","Project Management","Financial Inclusion"]}
   ],
   "families":[
-    {"title":"Research & institutional intelligence","description":"Research foundations, diagnostic methods, analytical software, and external review share an evidence discipline. These relationships describe research context; live system integration, external approval, and institutional partnership are not established.","nodes":[{"evidence":"RES-001","role":"SRF · financial-system resilience research"},{"evidence":"RES-003","role":"E-PSM · illiquidity and market-design research"},{"evidence":"RES-004","role":"Institutional translation · diagnostic framework"},{"evidence":"PRJ-002","role":"CAD / FIOS · research platform; Pilot-10 validation scope"},{"evidence":"PRJ-009","role":"Macro Studio · upstream macro and policy research workspace"},{"evidence":"ENG-001","role":"CGAP/World Bank · external methodological review"},{"evidence":"ENG-002","role":"ECMA · regulator-facing E-PSM dossier submission"}]},
-    {"title":"Enawuga financial infrastructure family","description":"The family connects rural service design, historical Nexus work, Model6 backend lineage, and the Sovereign Core pilot. The Vercel pilot uses its own synthetic runtime. Newly named concepts retain their bundle-reported status.","nodes":[{"evidence":"PRJ-012","role":"Rural hubs · operating-model concept to substantiate"},{"evidence":"PRJ-001","role":"Phygital Nexus / Agent Hub · historical field-service prototype"},{"evidence":"PRJ-013","role":"Enawuga OS · architecture relationship to substantiate"},{"evidence":"PRJ-010","role":"Model6 · institutional backend and public synthetic replay"},{"evidence":"PRJ-011","role":"Sovereign Core · controlled agent-to-audit demonstration"}]}
-  ]
+    {"title":"Research & institutional intelligence","description":"Research foundations, diagnostic methods, analytical software, and external review share an evidence discipline. The E-PSM lineage runs from Dual-Sided Failure diagnosis through Innovation Bridge, E-PSM market architecture, BERHANE OS design and prototyping, to the PISCES 2.0 and Sovereign Studio public prototypes. These relationships describe research and design context; live system integration, external approval, and institutional partnership are not established.","nodes":[
+      {"evidence":"RES-001","role":"SRF · financial-system resilience research"},
+      {"evidence":"RES-003","role":"E-PSM · illiquidity and market-design research manuscript (author self-published; not journal-published or peer-reviewed)"},
+      {"evidence":"PRJ-016","role":"BERHANE OS · E-PSM architecture and prototyping layer"},
+      {"evidence":"PRJ-014","role":"PISCES 2.0 · E-PSM institutional market prototype (synthetic data only)"},
+      {"evidence":"PRJ-015","role":"BERHANE OS Sovereign Studio · synthetic architecture simulation laboratory"},
+      {"evidence":"ENG-002","role":"ECMA · regulator-facing E-PSM dossier submission"},
+      {"evidence":"RES-004","role":"Institutional translation · Country Architect Diagnostic framework"},
+      {"evidence":"PRJ-002","role":"CAD / FIOS · research platform; Pilot-10 validation scope"},
+      {"evidence":"PRJ-009","role":"Macro Studio · upstream macro and policy research workspace"},
+      {"evidence":"ENG-001","role":"CGAP/World Bank · external methodological review"}
+    ]},
+    {"title":"Enawuga financial infrastructure family","description":"The Enawuga family connects rural service design, the historical Phygital Nexus prototype, Sovereign Core, Value-Added Rural Hubs, and Enawuga OS. Model 6 backend infrastructure is a separate independent technology family and is not part of Enawuga. Newly named concepts retain their bundle-reported status. The Vercel and public pilots use their own synthetic runtimes.","nodes":[
+      {"evidence":"PRJ-001","role":"Phygital Nexus / Agent Hub · historical field-service prototype"},
+      {"evidence":"PRJ-011","role":"Sovereign Core · controlled agent-to-audit synthetic demonstration"},
+      {"evidence":"PRJ-012","role":"Rural hubs · operating-model concept to substantiate"},
+      {"evidence":"PRJ-013","role":"Enawuga OS · architecture relationship to substantiate"}
+    ]},
+    {"title":"Model 6 backend infrastructure","description":"Model 6 is an independent backend technology, evidence-workflow, and decision-support infrastructure family. It is not part of the Enawuga family and is not a research project. Public and historical deployment environments (Render synthetic replay, AWS private synthetic lab — rehearsed and stopped, IBM Cloud historical) are each attributed separately. No live settlement, institutional adoption, or current production operation is established.","nodes":[
+      {"evidence":"PRJ-010","role":"Model6 · institutional backend and public synthetic investor replay"},
+      {"evidence":"ENG-003","role":"IBM-to-AWS continuity history · historical development/testing context"}
+    ]}
+  ],
+  "institutionalEngagement":{
+    "note":"Institutional Engagement & Market Development is a prominent cross-cutting professional pillar, not a fourth project family. It draws on evidence from all three families and the career record.",
+    "pillarEvidence":["ENG-001","ENG-002","FIN-001","CAR-008","CAR-009"],
+    "description":"Documented external review (CGAP/World Bank), regulator-facing submission (ECMA), accelerator programme participation (FinWise/EDI/UNCDF), and commercial business-development roles support an evidence-led institutional engagement and market-development practice. None of these records establish approval, licensing, endorsement, partnership, investment, or market outcomes."
+  }
 }

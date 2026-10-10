@@ -63,6 +63,10 @@ const renderProjectionSections = (projection) => {
   document.querySelector('#research-list').innerHTML = renderCards(projection.evidence.filter((node) => node.id.startsWith('RES-')));
   document.querySelector('#forecast-rows').innerHTML = projection.forecasts.map((forecast) => `<tr><td>${escapeHtml(forecast.signal)}</td><td>${escapeHtml(forecast.evidence)}</td><td>${escapeHtml(forecast.checkpoint)}</td><td><span class="table-status ${escapeHtml(forecast.statusClass)}">${escapeHtml(forecast.status)}</span></td></tr>`).join('');
   document.querySelector('#certification-list').innerHTML = projection.certifications.map((certification) => `<article class="evidence-card"><span class="evidence-badge badge-public">Credential · ${escapeHtml(certification.issued)}</span><h3>${escapeHtml(certification.name)}</h3><p>${escapeHtml(certification.issuer)}${certification.credentialId ? ` · Credential ID: ${escapeHtml(certification.credentialId)}` : ' · No separate credential ID listed'}</p><a href="${certification.verificationUrl}" target="_blank" rel="noreferrer">Verify credential ↗</a></article>`).join('');
+  const certCountLabel = document.querySelector('#cert-count-label');
+  if (certCountLabel) certCountLabel.textContent = `${projection.certifications.length} public records`;
+  const reviewDateEl = document.querySelector('#evidence-review-date');
+  if (reviewDateEl && projection.evidenceReviewedAt) reviewDateEl.textContent = `Evidence reviewed: ${projection.evidenceReviewedAt}`;
 };
 
 const initializeApp = async () => {
