@@ -1,5 +1,18 @@
 # Release changelog
 
+## 2026-10-10 - Phase 1 taxonomy reconciliation
+
+- Corrected Model 6 family classification: removed PRJ-010 from the Enawuga family in `public-projection.json` and `capability-map.json`; established Model 6 as a separate independent backend infrastructure family.
+- Added three new evidence records: PRJ-016 (BERHANE OS — E-PSM Architecture and Prototyping), PRJ-014 (PISCES 2.0 — E-PSM Institutional Market Prototype, Vercel public demo), PRJ-015 (BERHANE OS Sovereign Studio, Vercel public demo).
+- Updated RES-003 description to accurately reflect the E-PSM manuscript's submission to the Journal of Capital Market Studies (October 2025), decline (December 2025), and author self-publication on Academia.edu; the record is explicitly not journal-published, accepted, or peer-reviewed.
+- Added `evidenceReviewedAt` field to `public-projection.json`; footer and credential section now display the evidence-review date and certification count dynamically from the data rather than as hardcoded HTML.
+- Annotated the stale Model6/Enawuga classification in `IDENTITY-RECONCILIATION-2026-10-09.md` as superseded; historical text preserved.
+- Added `institutionalEngagement` cross-pillar section to `capability-map.json`; clarified that Institutional Engagement & Market Development is a cross-cutting professional pillar, not a fourth project family.
+- Added E-PSM lineage narrative to the Research & institutional intelligence family description in the capability map.
+- Regenerated `public-data.js` bundle from canonical JSON.
+- All existing evidence IDs, matcher rules, and evidence-governance boundaries preserved unchanged.
+- No private documents, credentials, secrets, or primary correspondence published.
+
 ## 2026-09-06 - Increment A production release
 
 - Added the approved career, education, research, certification, graph, matcher, scenario, and audience-view projection updates.
