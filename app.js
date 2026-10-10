@@ -66,7 +66,7 @@ const renderProjectionSections = (projection) => {
   const certCountLabel = document.querySelector('#cert-count-label');
   if (certCountLabel) certCountLabel.textContent = `${projection.certifications.length} public records`;
   const reviewDateEl = document.querySelector('#evidence-review-date');
-  if (reviewDateEl && projection.evidenceReviewedAt) reviewDateEl.textContent = `Evidence reviewed: ${projection.evidenceReviewedAt}`;
+  if (reviewDateEl && projection.evidenceReviewedAt) reviewDateEl.textContent = `Ledger reviewed: ${projection.evidenceReviewedAt}`;
 };
 
 const initializeApp = async () => {
