@@ -1,5 +1,5 @@
 {
-  "reviewedAt":"2026-10-10",
+  "reviewedAt":"2026-10-14",
   "capabilities":[
     {"id":"strategy","title":"Product strategy & founder judgment","description":"Turn institutional and customer problems into hypotheses, roadmaps, and reviewable pilots.","evidence":["CAR-007","ENT-001","PRJ-011","FIN-001"],"terms":["Design Thinking","Project Management"]},
     {"id":"finance","title":"Banking & financial operations","description":"Connect accounting, audit, branch leadership, and institutional finance with operating constraints.","evidence":["CAR-001","CAR-002","CAR-003","CAR-004","PRJ-010"],"terms":["Credit","Accounting"]},
@@ -23,7 +23,7 @@
       {"evidence":"PRJ-009","role":"Macro Studio · upstream macro and policy research workspace"},
       {"evidence":"ENG-001","role":"CGAP/World Bank · external methodological review"}
     ]},
-    {"title":"Enawuga financial infrastructure family","description":"The Enawuga family connects rural service design, the historical Phygital Nexus prototype, Sovereign Core, Value-Added Rural Hubs, and Enawuga OS. Model 6 backend infrastructure is a separate independent technology family and is not part of Enawuga. Newly named concepts retain their bundle-reported status. The Vercel and public pilots use their own synthetic runtimes.","nodes":[
+    {"title":"Enawuga financial infrastructure family","description":"Wishland Networking PLC is the corporate technology/orchestration context. The Enawuga family connects rural service design, the historical Phygital Nexus prototype, Sovereign Core, Value-Added Rural Hubs, and Enawuga OS. Licensed institutions retain regulated authority. Model 6 is a separate independent technology family and is not part of Enawuga.","nodes":[
       {"evidence":"PRJ-001","role":"Phygital Nexus / Agent Hub · historical field-service prototype"},
       {"evidence":"PRJ-011","role":"Sovereign Core · controlled agent-to-audit synthetic demonstration"},
       {"evidence":"PRJ-012","role":"Rural hubs · operating-model concept to substantiate"},

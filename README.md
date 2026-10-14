@@ -4,13 +4,16 @@ An evidence-backed public portfolio for Abeselom Girum Chernet.
 
 ## Live sites
 
-- Production: <https://abeselomchernet.github.io/abeselom-source-of-truth/>
+- Professional Source of Truth: <https://abeselomchernet.github.io/abeselom-source-of-truth/>
+- Wishland corporate site: <https://abeselomchernet.github.io/wishland/>
 - QA preview: <https://qa.abeselom-mvp-preview.pages.dev/>
 
 ## What is included
 
 - Executive bio, career, education, and training
 - Research, projects, volunteering, and technical portfolio
+- Explicit separation of the Enawuga family, Model6 technology family, and research family
+- Wishland corporate context and reciprocal public links without treating corporate branding as evidence
 - Certification records with verification links and source-listed credential IDs
 - Evidence statuses and boundaries
 - Interactive graph, explainable matcher, scenario views, and recruiter-facing lenses

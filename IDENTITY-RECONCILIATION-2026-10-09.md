@@ -15,7 +15,7 @@ The initial two V1 files have bundle ID `ABES-CANONICAL-IDENTITY-20261009-V1` an
 - Existing CAD certification claims are limited to the specified Pilot-10 artifacts.
 - CGAP/World Bank correspondence supports external expert review and methodological feedback. It does not support validation, approval, endorsement, partnership, or institutional adoption claims.
 - ECMA correspondence supports a regulator-facing E-PSM dossier submission following a Director General directive and a requested virtual briefing. It does not support approval, licensing, adoption, endorsement, or partnership claims.
-- FinWise evidence supports Enawuga Phygital Nexus selection from 322 applicants, programme participation, bootcamp completion, and final Pitch Day materials. It does not support a finalist claim or a selected-venture count.
+- FinWise evidence supports Enawuga Phygital Nexus programme participation, bootcamp completion, and final Pitch Day materials. The exact applicant-count claim is not used publicly because it has not been independently verified against an official programme source.
 - Evidence status is retained for compatibility; optional development stage and deployment state are separate fields. Historical and experimental are lifecycle descriptions, not evidence-strength tiers.
 - The website is the public presentation of a reviewed claim register. Primary evidence resolves factual conflicts.
 

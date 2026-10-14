@@ -1,5 +1,15 @@
 # Release changelog
 
+## 2026-10-14 - Wishland brand bridge and public-identity polish
+
+- Aligned the public Source of Truth with the Wishland navy / teal / gold brand family while preserving the site's separate personal and evidence-governance identity.
+- Added a dedicated Wishland corporate bridge, reciprocal corporate links, founder/company LinkedIn paths, and explicit three-family boundaries for Enawuga, Model6, and the research family.
+- Updated the public positioning to the current 19+ years banking-and-enterprise professional model and linked Wishland founder evidence to the corporate site.
+- Corrected the remaining Model6 case-study label so Model6 is not presented as part of Enawuga.
+- Removed the exact FinWise applicant-count claim from public-facing text pending independent official verification; programme participation, bootcamp completion, and Pitch Day evidence remain document-backed.
+- Added structured Person/Organization metadata, a branded personal favicon, and the Wishland corporate wordmark as contextual—not evidentiary—presentation assets.
+- Rebuilt and revalidated the canonical public data bundle; graph, matcher, local assets, internal anchors, and network-free loading tests pass.
+- Desktop and 390px mobile browser QA confirm no horizontal overflow and preserve the evidence graph and matcher interactions.
 ## 2026-10-10 - Phase 1 taxonomy reconciliation
 
 - Corrected Model 6 family classification: removed PRJ-010 from the Enawuga family in `public-projection.json` and `capability-map.json`; established Model 6 as a separate independent backend infrastructure family.
