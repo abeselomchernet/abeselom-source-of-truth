@@ -10,6 +10,7 @@
 - Added structured Person/Organization metadata, a branded personal favicon, and the Wishland corporate wordmark as contextual—not evidentiary—presentation assets.
 - Rebuilt and revalidated the canonical public data bundle; graph, matcher, local assets, internal anchors, and network-free loading tests pass.
 - Desktop and 390px mobile browser QA confirm no horizontal overflow and preserve the evidence graph and matcher interactions.
+- Refreshed the public one-page bio and recruiter CV downloads to the current three-domain taxonomy, Wishland/Enawuga corporate boundary, Model6 non-production boundary, research-publication status, and evidence-governance language; both PDFs were visually QA'd before replacement.
 ## 2026-10-10 - Phase 1 taxonomy reconciliation
 
 - Corrected Model 6 family classification: removed PRJ-010 from the Enawuga family in `public-projection.json` and `capability-map.json`; established Model 6 as a separate independent backend infrastructure family.
